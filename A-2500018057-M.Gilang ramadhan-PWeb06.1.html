@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Tugas CSS Layout - Informatika UAD</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Style untuk Header */
+header {
+  background-color: #4CAF50;
+  padding: 30px;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+
+/* Container untuk kolom */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style untuk Navigasi/Sidebar (Kolom Kiri) */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #e2e2e2;
+  padding: 20px;
+}
+
+/* Style untuk Konten Utama (Kolom Kanan) */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Style untuk Footer */
+footer {
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - membuat kolom bertumpuk di layar kecil */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h2>Header</h2>
+  <p>Bagian atas halaman web</p>
+</header>
+
+<section>
+  <nav>
+    <h3>Sidebar (Kolom 1)</h3>
+    <p>Informasi navigasi atau link tambahan diletakkan di sini.</p>
+  </nav>
+  
+  <article>
+    <h3>Main Content (Kolom 2)</h3>
+    <p>Ini adalah area konten utama untuk tugas mata kuliah CSS.</p>
+    <p>Layout ini telah dimodifikasi dari script asli di W3Schools.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Footer - Informasi Hak Cipta & Kontak</p>
+</footer>
+
+</body>
+</html>
