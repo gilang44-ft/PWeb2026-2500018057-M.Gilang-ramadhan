@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWeb-07.2 Tugas Javascript Dasar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 60px auto;
+      background: #f4f6f8;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      color: #555;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 11px;
+      background: #4a90d9;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover { background: #357abd; }
+    #hasil {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #2c7a2c;
+      min-height: 30px;
+    }
+    .tabel {
+      margin-top: 24px;
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .tabel th, .tabel td {
+      border: 1px solid #ddd;
+      padding: 7px 12px;
+      text-align: center;
+    }
+    .tabel th { background: #4a90d9; color: white; }
+    .tabel tr:nth-child(even) { background: #f0f6ff; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Konversi Nilai Angka → Huruf</h2>
+
+    <label for="nilaiInput">Masukkan Nilai (0 - 100):</label>
+    <input type="number" id="nilaiInput" min="0" max="100" placeholder="contoh: 75">
+    <button onclick="cekNilai()">Cek Nilai</button>
+
+    <div id="hasil"></div>
+
+    <table class="tabel">
+      <tr><th>Rentang Nilai</th><th>Nilai Huruf</th></tr>
+      <tr><td>80 – 100</td><td>A</td></tr>
+      <tr><td>65 – 79</td><td>B</td></tr>
+      <tr><td>40 – 64</td><td>C</td></tr>
+      <tr><td>21 – 39</td><td>D</td></tr>
+      <tr><td>0 – 20</td><td>E</td></tr>
+    </table>
+  </div>
+
+  <script>
+    function cekNilai() {
+      var nilai = Number(document.getElementById("nilaiInput").value);
+      var hasilDiv = document.getElementById("hasil");
+
+      if (document.getElementById("nilaiInput").value === "") {
+        hasilDiv.style.color = "#c0392b";
+        hasilDiv.innerHTML = "⚠️ Masukkan nilai terlebih dahulu!";
+      } else if (nilai < 0 || nilai > 100) {
+        hasilDiv.style.color = "#c0392b";
+        hasilDiv.innerHTML = "⚠️ Nilai harus antara 0 dan 100!";
+      } else {
+        var huruf;
+
+        if (nilai >= 80) {
+          huruf = "A";
+        } else if (nilai >= 65) {
+          huruf = "B";
+        } else if (nilai >= 40) {
+          huruf = "C";
+        } else if (nilai >= 21) {
+          huruf = "D";
+        } else {
+          huruf = "E";
+        }
+
+        hasilDiv.style.color = "#2c7a2c";
+        hasilDiv.innerHTML = "Nilai " + nilai + " → <span style='font-size:28px'>" + huruf + "</span>";
+      }
+    }
+
+    // Bisa juga tekan Enter
+    document.getElementById("nilaiInput").addEventListener("keydown", function(e) {
+      if (e.key === "Enter") cekNilai();
+    });
+  </script>
+</body>
+</html>
